@@ -61,6 +61,7 @@
 
 - (NSArray *)parseJSONToDeliverables:(NSString *)jsonString {
     @try {
+        jsonString = [jsonString uppercaseString];
         NSDictionary *jsonDict =
          [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]
                                          options:NSJSONReadingMutableContainers
@@ -91,6 +92,7 @@
 
 - (NSArray *)parseJSONToDeliveryList:(NSString *)jsonString {
     @try {
+        jsonString = [jsonString uppercaseString];
         NSDictionary *jsonDict =
         [NSJSONSerialization JSONObjectWithData: [jsonString dataUsingEncoding:NSUTF8StringEncoding]
                                         options: NSJSONReadingMutableContainers
@@ -101,24 +103,24 @@
         NSLog(@"%@", [deliveriesArray description]);
         for (int i=0;i<deliveriesArray.count;i++) {
             NSDictionary *delivery = deliveriesArray[i];
-            NSString *str = [delivery objectForKey:@"DATE_RECEIVED"];
-            NSDate *dateReceived = [self mfDateFromDotNetJSONString:str];
-            NSLog(@"%@", [dateReceived description]);
-            str = [delivery objectForKey:@"DELIVERY_DATE"];
-            NSDate *dateExpected = [self mfDateFromDotNetJSONString:str];
-            NSLog(@"%@", [dateExpected description]);
+            //NSString *str = [delivery objectForKey:@"DATE_RECEIVED"];
+            //NSDate *dateReceived = [self mfDateFromDotNetJSONString:str];
+            //NSLog(@"%@", [dateReceived description]);
+            //str = [delivery objectForKey:@"DELIVERY_DATE"];
+            //NSDate *dateExpected = [self mfDateFromDotNetJSONString:str];
+            //NSLog(@"%@", [dateExpected description]);
             NSString *ID = [NSString stringWithFormat:@"%@", [delivery objectForKey:@"DELIVERY_ID"]];
             NSLog(@"%@", ID);
             NSString *status = [NSString stringWithFormat:@"%@", [delivery objectForKey:@"STATUS"]];
             NSLog(@"%@", status);
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"dd/mm/yyyy"];
+            //NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            //[formatter setDateFormat:@"dd/mm/yyyy"];
             //Optionally for time zone converstions
             
-            NSString *stringFromDate = [formatter stringFromDate:dateExpected];
-            NSString *dateExpectedStr = stringFromDate;
-            stringFromDate = [formatter stringFromDate:dateReceived];
-            NSString *dateReceivedStr = stringFromDate;
+            //NSString *stringFromDate = [formatter stringFromDate:dateExpected];
+            NSString *dateExpectedStr = [delivery objectForKey:@"DELIVERY_DATE"];// stringFromDate;
+            //stringFromDate = [formatter stringFromDate:dateReceived];
+            NSString *dateReceivedStr = [delivery objectForKey:@"DATE_RECEIVED"]; //stringFromDate;
             Delivery *newDelivery = [[Delivery alloc] initWithID:ID deliveryDate:dateExpectedStr receivedDate:dateReceivedStr status:status];
             [parsedDeliveryList addObject:newDelivery];
         }
@@ -163,6 +165,7 @@
 
 - (void)changeCurrentDeliverableList:(NSString *)currentDeliveryID {
     _CurrentDeliveryID = currentDeliveryID;
+    _DeliveryList = nil;
 }
 
 - (NSArray *)deliveries {

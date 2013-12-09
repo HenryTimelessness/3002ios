@@ -29,6 +29,10 @@
 		DF23AC9E185624DF004ADF04 /* officebuilding3-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DF23AC99185624DE004ADF04 /* officebuilding3-21.png */; };
 		DF23AC9F185624DF004ADF04 /* officebuliding-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DF23AC9A185624DE004ADF04 /* officebuliding-21.png */; };
 		DF23ACA0185624DF004ADF04 /* officebuliding2-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DF23AC9B185624DF004ADF04 /* officebuliding2-21.png */; };
+		DF23ACA2185647F3004ADF04 /* shopping_cart_4.png in Resources */ = {isa = PBXBuildFile; fileRef = DF23ACA1185647F3004ADF04 /* shopping_cart_4.png */; };
+		DF23ACA6185654DD004ADF04 /* Calendar Icon Black-White.png in Resources */ = {isa = PBXBuildFile; fileRef = DF23ACA3185654DD004ADF04 /* Calendar Icon Black-White.png */; };
+		DF23ACA7185654DD004ADF04 /* Calendar-Check.png in Resources */ = {isa = PBXBuildFile; fileRef = DF23ACA4185654DD004ADF04 /* Calendar-Check.png */; };
+		DF23ACA8185654DD004ADF04 /* id.png in Resources */ = {isa = PBXBuildFile; fileRef = DF23ACA5185654DD004ADF04 /* id.png */; };
 		DF90E0BF1854541E0056C67B /* TCPConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = DF90E0BE1854541E0056C67B /* TCPConnect.m */; };
 		DF90E0C118545A750056C67B /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DF90E0C018545A750056C67B /* libicucore.dylib */; };
 		DF90E0C318545A7F0056C67B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF90E0C218545A7F0056C67B /* CFNetwork.framework */; };
@@ -110,6 +114,10 @@
 		DF23AC99185624DE004ADF04 /* officebuilding3-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "officebuilding3-21.png"; sourceTree = "<group>"; };
 		DF23AC9A185624DE004ADF04 /* officebuliding-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "officebuliding-21.png"; sourceTree = "<group>"; };
 		DF23AC9B185624DF004ADF04 /* officebuliding2-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "officebuliding2-21.png"; sourceTree = "<group>"; };
+		DF23ACA1185647F3004ADF04 /* shopping_cart_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopping_cart_4.png; sourceTree = "<group>"; };
+		DF23ACA3185654DD004ADF04 /* Calendar Icon Black-White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calendar Icon Black-White.png"; sourceTree = "<group>"; };
+		DF23ACA4185654DD004ADF04 /* Calendar-Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calendar-Check.png"; sourceTree = "<group>"; };
+		DF23ACA5185654DD004ADF04 /* id.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = id.png; sourceTree = "<group>"; };
 		DF90E0BD1854541E0056C67B /* TCPConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPConnect.h; sourceTree = "<group>"; };
 		DF90E0BE1854541E0056C67B /* TCPConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPConnect.m; sourceTree = "<group>"; };
 		DF90E0C018545A750056C67B /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -270,6 +278,10 @@
 				DF1B82C11851ED6100EFB0AC /* ViewController.h */,
 				DF1B82C21851ED6100EFB0AC /* ViewController.m */,
 				DF1B82C41851ED6100EFB0AC /* Images.xcassets */,
+				DF23ACA3185654DD004ADF04 /* Calendar Icon Black-White.png */,
+				DF23ACA4185654DD004ADF04 /* Calendar-Check.png */,
+				DF23ACA5185654DD004ADF04 /* id.png */,
+				DF23ACA1185647F3004ADF04 /* shopping_cart_4.png */,
 				DF23AC97185624DE004ADF04 /* barcode-21.png */,
 				DF23AC98185624DE004ADF04 /* delivery-21.jpg */,
 				DF23AC99185624DE004ADF04 /* officebuilding3-21.png */,
@@ -384,8 +396,8 @@
 				DF958B831854351100E64CC1 /* ShopCell.m */,
 				DF910E941854F8B9008357CD /* ShopListModel.h */,
 				DF910E951854F8B9008357CD /* ShopListModel.m */,
-				DF910E971854F8F2008357CD /* Shop.h */,
 				DF910E981854F8F2008357CD /* Shop.m */,
+				DF910E971854F8F2008357CD /* Shop.h */,
 			);
 			name = Shops;
 			sourceTree = "<group>";
@@ -508,6 +520,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF23ACA8185654DD004ADF04 /* id.png in Resources */,
 				DF23AC9F185624DF004ADF04 /* officebuliding-21.png in Resources */,
 				DF23AC791855FD90004ADF04 /* OfficeBuilding-128.png in Resources */,
 				DF23AC7F18560231004ADF04 /* Main.storyboard in Resources */,
@@ -517,7 +530,10 @@
 				DF958B8A18543CAE00E64CC1 /* Truck.png in Resources */,
 				DF23AC9C185624DF004ADF04 /* barcode-21.png in Resources */,
 				DF958B8618543BDA00E64CC1 /* Gear Icon Black-White 50 x 50.png in Resources */,
+				DF23ACA6185654DD004ADF04 /* Calendar Icon Black-White.png in Resources */,
+				DF23ACA7185654DD004ADF04 /* Calendar-Check.png in Resources */,
 				DF23AC7A1855FD90004ADF04 /* Payment-Methods-Barcode-icon.png in Resources */,
+				DF23ACA2185647F3004ADF04 /* shopping_cart_4.png in Resources */,
 				DF23AC781855FD90004ADF04 /* delivery-512.png in Resources */,
 				DF23AC9E185624DF004ADF04 /* officebuilding3-21.png in Resources */,
 				DF958B8C18543D1200E64CC1 /* TruckSmall.png in Resources */,

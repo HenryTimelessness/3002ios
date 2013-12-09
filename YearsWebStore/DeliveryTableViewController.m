@@ -89,18 +89,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"DeliveryCellIdentifier";
-    DeliveriesCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    
     if (!_DeliveryList) {
-        UIActivityIndicatorView *activityView=[[UIActivityIndicatorView alloc]     initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        activityView.center=self.view.center;
-        [activityView startAnimating];
-        [self.view addSubview:activityView];
         return [tableView dequeueReusableCellWithIdentifier:@"LoadingCell" forIndexPath:indexPath];
     } else if (_DeliveryList.count == 0) {
         return [tableView dequeueReusableCellWithIdentifier:@"ListEmptyCell" forIndexPath:indexPath];
     }
+    NSString *CellIdentifier = @"DeliveryCellIdentifier";
+    DeliveriesCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     Delivery *currDelivery = _DeliveryList[indexPath.row];
+   
     if(currDelivery == NULL) {
         NSLog(@"curr delivery null");
         
@@ -111,14 +111,18 @@
     cell.ID.text = currDelivery.ID;
     cell.Date.text = currDelivery.DeliveryDate;
     cell.Status.text = currDelivery.Status;
-    if ([cell.Status.text isEqualToString:@"Pending"]) {
-        cell.Status.textColor = [UIColor redColor];
+    if ([cell.Status.text isEqualToString:@"RECEIVED"]) {
+        cell.Status.textColor = [UIColor colorWithRed:63.0f/255.0f green:110.0f/255.0f blue:117.0f/255.0f alpha:1.0f];
+        cell.backgroundColor = [UIColor colorWithRed:101.0f/255.0f green:168.0f/255.0f blue:81.0f/255.0f alpha:1.0f];
     } else {
-        cell.Status.textColor = [UIColor greenColor];
+        cell.Status.textColor = [UIColor redColor];
     }
     cell.DateReceived.text = currDelivery.ReceivedDate;
-    // Configure the cell...
     
+    NSLog(@"%@%@%@%@", cell.ID.text, cell.Date.text, cell.Status.text, cell.DateReceived.text);
+    NSLog(@"%@%@%@%@", currDelivery.ID, currDelivery.DeliveryDate, currDelivery.Status, currDelivery.ReceivedDate);
+    // Configure the cell...
+    NSLog(@"cell: %@", [cell description]);
     return cell;
 }
 

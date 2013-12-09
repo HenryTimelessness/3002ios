@@ -94,7 +94,7 @@
     if ([currShop.Status isEqualToString:@"Not Connected"]) {
         cell.Status.textColor = [UIColor redColor];
     } else {
-        cell.Status.textColor = [UIColor greenColor];
+        cell.Status.textColor = [UIColor colorWithRed:63.0f/255.0f green:110.0f/255.0f blue:117.0f/255.0f alpha:1.0f];
     }
     // Configure the cell...
     

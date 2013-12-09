@@ -50,19 +50,27 @@
 - (void)refresh:(UIRefreshControl *)refreshControl {
     NSLog(@"referesh deiverables");
     if (!_listOfDeliverables) {
+        
         [[DeliveriesModel sharedInstance] updateCurrentDeliverableList:^{
+            NSLog(@"lmao11");
             _listOfDeliverables = [[NSArray alloc] initWithArray:[[DeliveriesModel sharedInstance] deliverables:_currentDelivery]];
             _numberOfDeliverables = _listOfDeliverables.count;
+            [self.tableView reloadData];
+            NSLog(@"lmao112");
+            [refreshControl endRefreshing];
         } failure:^(NSException *ex) {
             NSLog(@"Failed to refreshDeliverabLES LIST: %@", [ex description]);
         }];
     }
+    NSLog(@"lmao12321");
     [self.tableView reloadData];
+    NSLog(@"lmao11133453");
     [refreshControl endRefreshing];
 }
 
 - (void)setcurrentDeliveryID:(NSString *)currentDeliveryID {
     _currentDelivery = currentDeliveryID;
+    _listOfDeliverables = nil;
     [[DeliveriesModel sharedInstance] changeCurrentDeliverableList:currentDeliveryID];
 }
 
@@ -88,23 +96,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (!_listOfDeliverables || _listOfDeliverables.count == 0) {
+        return 1;
+        NSLog(@"ENTERED");
+    }
     return _numberOfDeliverables;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"DeliverablesCellIdentifier";
-    DeliverablesCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (!_listOfDeliverables) {
-        UIActivityIndicatorView *activityView=[[UIActivityIndicatorView alloc]     initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        activityView.center=self.view.center;
-        [activityView startAnimating];
-        [self.view addSubview:activityView];
         return [tableView dequeueReusableCellWithIdentifier:@"LoadingCell" forIndexPath:indexPath];
     } else if (_listOfDeliverables.count == 0) {
         return [tableView dequeueReusableCellWithIdentifier:@"ListEmptyCell" forIndexPath:indexPath];
     }
     @try {
+        NSString *CellIdentifier = @"DeliverablesCellIdentifier";
+        DeliverablesCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         Deliverable *currDeliverable = _listOfDeliverables[indexPath.row];
         cell.Barcode.text = currDeliverable.Barcode;
         cell.Name.text = currDeliverable.Name;
@@ -112,8 +120,9 @@
         cell.Quantity.text = [NSString stringWithFormat:@"%i",currDeliverable.quantity];
         cell.QuantityReceived.text = [NSString stringWithFormat:@"%i",currDeliverable.quantityReceived];
         if ([cell.QuantityReceived.text isEqualToString:cell.Quantity.text]) {
-            cell.Quantity.textColor = [UIColor greenColor];
-            cell.QuantityReceived.textColor = [UIColor greenColor];
+            cell.backgroundColor = [UIColor colorWithRed:101.0f/255.0f green:168.0f/255.0f blue:81.0f/255.0f alpha:1.0f];
+            cell.Quantity.textColor = [UIColor colorWithRed:63.0f/255.0f green:110.0f/255.0f blue:117.0f/255.0f alpha:1.0f];
+            cell.QuantityReceived.textColor = [UIColor colorWithRed:63.0f/255.0f green:110.0f/255.0f blue:117.0f/255.0f alpha:1.0f];
         } else {
             cell.QuantityReceived.textColor = [UIColor redColor];
         }
