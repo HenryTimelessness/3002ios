@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6C08D8C5-129D-4F2C-A33E-CD0002780103</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YearsWebStore</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>18B2432A-F2DC-487D-BD5C-75B41D2533BA</key>
+		<string>https://github.com/HenryTimelessness/3002ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>YearsWebStore.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>18B2432A-F2DC-487D-BD5C-75B41D2533BA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/HenryTimelessness/3002ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>18B2432A-F2DC-487D-BD5C-75B41D2533BA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>18B2432A-F2DC-487D-BD5C-75B41D2533BA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>YearsWebStore</string>
+		</dict>
+	</array>
+</dict>
+</plist>

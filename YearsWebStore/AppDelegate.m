@@ -13,7 +13,36 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    // Let the device know we want to receive push notifications
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
     return YES;
+}
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	NSLog(@"My token is: %@", deviceToken);
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    if (application.applicationState ==  UIApplicationStateInactive) {
+        //user tapped the actuib buttion
+    } else {
+        NSDictionary *apsDict = [userInfo objectForKey:@"aps"];
+        NSString *alertMessageContent = [apsDict objectForKey:@"alert"];
+        //user was in application
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Years Store"
+                                                          message:alertMessageContent delegate:self
+                                                cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        [message show];
+    }
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
